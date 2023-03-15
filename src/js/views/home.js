@@ -17,10 +17,10 @@ export const Home = () => {
 	return ( 
 	
 	<div className="text-center mt-5">
-		<div></div>
+		<div>
          {store.characters.map((character, index)=> (
 		<CharacterCard key = {index} name = {character.name} birth = {character.birth_year}  gender = {character.gender} />))} 
-		
+		</div>
 	</div>
 	);
 	};

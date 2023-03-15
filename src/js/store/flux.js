@@ -42,7 +42,24 @@ const getState = ({ getStore, getActions, setStore }) => {
                      (error) => console.log(error);
 				}
 				//get response and then transforms
-			}
+			},
+			getStarships: async () => {
+				//if try(to fetch) doesnt work move onto catch
+				try{
+					const response = await fetch(apiUrl + "/starships");
+					//grab response and read  json data that was Fetched on line 11
+					const data = await response.json();
+					setStore({starships:data.result.properties})
+					// it is data.results bc the responce is an object that has a key named results that holds the information we need tho fetch 
+					//always need a return statement in try
+					return data;
+				}
+				//catch is to alert on error if try doeant work 
+				catch{
+                     (error) => console.log(error);
+				}
+				//get response and then transforms
+			},
 		}
 	};
 };
