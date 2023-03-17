@@ -1,5 +1,5 @@
 const getState = ({ getStore, getActions, setStore }) => {
-	const apiUrl = "https://swapi.tech/api"
+	const apiUrl = "https://swapi.dev/api"
 	return {
 		store: {
 			//null is used bc (for now) so i can test if the data exist
@@ -8,6 +8,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			species: null,
 			starships: null,
 			planets: null,
+			
 		},
 		//action is an object and getCharacters is a key
 		actions: {
@@ -28,13 +29,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 				//get response and then transforms
 			},
+			
+				
 			getSpecies: async () => {
 				//if try(to fetch) doesnt work move onto catch
 				try{
 					const response = await fetch(apiUrl + "/species");
 					//grab response and read  json data that was Fetched on line 11
 					const data = await response.json();
-					setStore({species:data.result.properties})
+					setStore({species:data.result})
 					// it is data.results bc the responce is an object that has a key named results that holds the information we need tho fetch 
 					//always need a return statement in try
 					return data;
@@ -51,7 +54,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					const response = await fetch(apiUrl + "/starships");
 					//grab response and read  json data that was Fetched on line 11
 					const data = await response.json();
-					setStore({starships:data.result.properties})
+					setStore({starships:data.result})
 					// it is data.results bc the responce is an object that has a key named results that holds the information we need tho fetch 
 					//always need a return statement in try
 					return data;
@@ -68,7 +71,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					const response = await fetch(apiUrl + "/planets");
 					//grab response and read  json data that was Fetched on line 11
 					const data = await response.json();
-					setStore({planets:data.result.properties})
+					setStore({planets:data.result})
 					// it is data.results bc the responce is an object that has a key named results that holds the information we need tho fetch 
 					//always need a return statement in try
 					return data;
