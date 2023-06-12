@@ -7,7 +7,7 @@ import {SpeciesCard} from '../component/speciesCard.js';
 import {PlanetsCard} from '../component/planetsCard.js';
 import { StarshipsCard } from "../component/starshipsCard";
 
-//import {StarshipsCard} from '../component/starshipsCard.js';
+
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);

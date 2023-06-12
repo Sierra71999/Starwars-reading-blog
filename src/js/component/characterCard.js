@@ -1,9 +1,25 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import rigoImage from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
 import { Context } from '../store/appContext.js';
 import { Link } from "react-router-dom";
 export const CharacterCard = (props) => {
+  const [activeFav, setActiveFav] = useState(false);
+  const handleFavorites = (e) => {
+    e.preventDefault();
+    if (activeFav === true) {
+      actions.artistFavoriteRemove(props);
+      setActiveFav(false);
+    } else {
+      actions.artistFavorite(props);
+      setActiveFav(true);
+    }
+  };
+  useEffect(() => {
+    if (location.pathname == "/favorites") {
+      setActiveFav(true);
+    }
+  }, []);
     return (
     <div className="card" style={{"width":"18rem"}}>
       {/* this url was pulled from the starwars github */}
@@ -12,8 +28,22 @@ export const CharacterCard = (props) => {
     <h5 className="card-title">{props.name}</h5>
     <p className="card-text">{props.birth_year}</p>
     <p>{props.gender}</p>
-    <Link to ={ "/character-details/" + props.index}><a href="#" className="btn btn-primary">Go somewhere</a></Link>
     
+    <Link to ={ "/character-details/" + props.index}><a href="#" className="btn btn-primary">Go somewhere</a></Link>
+    <div className="buttonDiv mb-1">
+          <a className="btn btn-sm purplebutton" href={props.link}>
+           
+          </a>
+          <i
+            className={
+              activeFav
+                ? "fa-regular fas fa-heart fa-lg card-heart"
+                : " fa-regular far fa-heart fa-lg card-heart"
+            }
+            style={{ color: "#8968CD" }}
+            onClick={(e) => handleFavorites(e)}
+          ></i>
+        </div>
   </div>
 </div>
 

@@ -2,7 +2,7 @@ import React, { useEffect, useContext } from "react";
 import rigoImage from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
 import { Context } from '../store/appContext.js';
-
+import { Link } from "react-router-dom";
 export const SpeciesCard = (props) => {
     return (
     <div className="card" style={{"width":"18rem"}}>
@@ -14,7 +14,7 @@ export const SpeciesCard = (props) => {
     <p>{props.language}</p>
     <p>{props.lifespan}</p>
     <p>{props.designation}</p>
-    <a href="#" className="btn btn-primary">Go somewhere</a>
+    <Link to ={ "/species-details/" + props.index}><a href="#" className="btn btn-primary">Go somewhere</a></Link>
   </div>
 </div>
 

@@ -73,14 +73,14 @@ export const PlanetDetails = (props) => {
   const { store, actions } = useContext(Context);
   const params = useParams();
   let planet = store.planets.filter((item, index) => index == params.theid)[0];
-
+  console.log(params);
   return (
     <div className="jumbotron">
       <div className="d-flex container justify-content-center">
         <div className="w-25">
           <img
             src={
-              "https://github.com/tbone849/star-wars-guide/blob/master/build/assets/img/characters/" +
+              "https://github.com/tbone849/star-wars-guide/blob/master/build/assets/img/planets/" +
               (parseInt(params.theid) + 1) +
               ".jpg?raw=true"
             }
@@ -126,7 +126,7 @@ export const StarshipDetails = (props) => {
         <div className="w-25">
           <img
             src={
-              "https://github.com/tbone849/star-wars-guide/blob/master/build/assets/img/characters/" +
+              "https://github.com/tbone849/star-wars-guide/blob/master/build/assets/img/starships/" +
               (parseInt(params.theid) + 1) +
               ".jpg?raw=true"
             }
@@ -169,10 +169,28 @@ export const SpeciesDetails = (props) => {
   const params = useParams();
   return (
     <div className="jumbotron">
-      {species.classification}
-      {species.language}
-      {species.lifespan}
-      {species.designation}
+      <div className="d-flex container justify-content-center">
+        <div className="w-25">
+        <img
+            src={
+              "https://github.com/tbone849/star-wars-guide/blob/master/build/assets/img/species/" +
+              (parseInt(params.theid) + 1) +
+              ".jpg?raw=true"
+            }
+            className="card-img-top"
+            alt="..."
+          />
+        </div>
+      <div>
+        <h6>Classification:</h6>{species.classification}</div>
+      <div>
+        <h6>Language:</h6>
+        {species.language}</div>
+      <div>
+        <h6>Lifespan:</h6>{species.lifespan}</div>
+      <div><h6>Designation:</h6>{species.designation}</div>
+      
+    </div>
     </div>
   );
 };

@@ -12,8 +12,8 @@ export const StarshipsCard = (props) => {
     <h5 className="card-title">{props.name}</h5>
     <p className="card-text">{props.model}</p>
     <p>{props.cost}</p>
-    <a href="#" className="btn btn-primary">Go somewhere</a>
-  </div>
+    <Link to ={ "/starships-details/" + props.index}><a href="#" className="btn btn-primary">Go somewhere</a></Link>  
+    </div>
 </div>
 
     )

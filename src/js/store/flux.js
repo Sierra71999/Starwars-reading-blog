@@ -8,10 +8,26 @@ const getState = ({ getStore, getActions, setStore }) => {
 			species: [],
 			starships: [],
 			planets: [],
-			
+			favoriteCharacters: [],
 		},
 		//action is an object and getCharacters is a key
 		actions: {
+			
+			//   characterFavorites: (character) => {
+			// 	let favoriteCharacters = getStore().favoriteCharacters
+			// 	favoriteCharacters = favoriteCharacters.filter(
+			// 		(characters_i) => characters_i.characters_name != character.characters_name
+			// 	);
+			// 	let characters = [...favoriteCharacters, characters];
+			// 	setStore({favoriteCharacters: characters});
+			//   },
+			//   charactersFavoriteRemove: (characters) => {
+			// 	let favortieCharacters = getStore(). favortieCharacters;
+			// 	favoriteCharacters = favortieCharacters.filter(
+			// 		(characters_i) => characters_i.characters_name != characters.characters_name
+			// 	);
+			// 	setStore({favoriteCharacters: characters});
+			//   },
 			getCharacters: async () => {
 				//doesnt work move onto catch
 				try{
