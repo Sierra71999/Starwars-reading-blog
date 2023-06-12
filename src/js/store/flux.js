@@ -4,10 +4,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 			//null is used bc (for now) so i can test if the data exist
 			// store is used so we have to fetch it once than store helps be faster / and we can reused data throughout code
-			characters: null,
-			species: null,
-			starships: null,
-			planets: null,
+			characters: [],
+			species: [],
+			starships: [],
+			planets: [],
 			
 		},
 		//action is an object and getCharacters is a key
