@@ -14,7 +14,7 @@ export const PlanetsCard = (props) => {
     <p>{props.terrain}</p>
     <p>{props.rotation_period}</p>
    
-    <Link to ={ "/planet-details/" + props.index}><a href="#" className="btn btn-primary">Go somewhere</a></Link>
+    <Link to ={ "/planet-details/" + props.index}>Go somewhere</Link>
 
   </div>
 </div>

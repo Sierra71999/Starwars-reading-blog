@@ -14,7 +14,7 @@ export const SpeciesCard = (props) => {
     <p>{props.language}</p>
     <p>{props.lifespan}</p>
     <p>{props.designation}</p>
-    <Link to ={ "/species-details/" + props.index}><a href="#" className="btn btn-primary">Go somewhere</a></Link>
+    <Link to ={ "/species-details/" + props.index}>Go somewhere</Link>
   </div>
 </div>
 

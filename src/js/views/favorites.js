@@ -22,44 +22,55 @@ export const Favorites = () => {
         <h1 className="mb-4">Favorites</h1>
   
         <div>
-          <h3>Artists</h3>
+          <h3>Characters</h3>
         </div>
         <div className="card-row px-3 d-flex flex-row flex-wrap justify-content-start">
-          {store.favoriteArtists.map((artist, index) => {
+          {store.favoriteCharacters.map((characters, index) => {
             return (
-              <Artistcard
-                key={index}
-                artist_name={artist.artist_name}
-                genre={artist.genre}
-                performance_type={artist.performance_type}
-                imgUrl={artist.imgUrl}
-                link={"/artists/" + artist.id}
-                id={artist.id}
-                starRating="5.0"
+              <CharacterCard
+              key = {index} name = {character.name} birth = {character.birth_year}  gender = {character.gender} index = {index} 
+              />
+            );
+          })}
+        </div>
+        <div>
+          <h3>Characters</h3>
+        </div>
+        <div className="card-row px-3 d-flex flex-row flex-wrap justify-content-start">
+          {store.favoriteCharacters.map((characters, index) => {
+            return (
+              <CharacterCard
+              key = {index} name = {character.name} birth = {character.birth_year}  gender = {character.gender} index = {index} 
+              />
+            );
+          })}
+        </div>
+        <div>
+          <h3>Planets</h3>
+        </div>
+        <div className="card-row px-3 d-flex flex-row flex-wrap justify-content-start">
+          {store.favoritePlanets.map((characters, index) => {
+            return (
+              
+              <PlanetsCard key = {index} name = {planet.name} climate = {planet.climate}  terrain = {planet.terrain} rotation_period ={planet.rotation_planet} index = {index}  
+              />
+            );
+          })}
+        </div>
+        <div>
+          <h3>Characters</h3>
+        </div>
+        <div className="card-row px-3 d-flex flex-row flex-wrap justify-content-start">
+          {store.favoriteCharacters.map((characters, index) => {
+            return (
+              <CharacterCard
+              key = {index} name = {character.name} birth = {character.birth_year}  gender = {character.gender} index = {index} 
               />
             );
           })}
         </div>
   
-        <div>
-          <h3>Venues</h3>
-        </div>
-        <div className="card-row px-3 d-flex flex-row flex-wrap justify-content-start">
-          {store.favoriteVenues.map((venue, index) => {
-            return (
-              <Venuecard
-                key={index}
-                venue_name={venue.venue_name}
-                city={venue.city}
-                state={venue.state}
-                imgUrl={venue.imgUrl}
-                link={"/venues/" + venue.id}
-                id={index}
-                starRating="5.0"
-              />
-            );
-          })}
-        </div>
+       
       </div>
     );
   };

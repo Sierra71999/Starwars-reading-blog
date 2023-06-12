@@ -13,21 +13,25 @@ const getState = ({ getStore, getActions, setStore }) => {
 		//action is an object and getCharacters is a key
 		actions: {
 			
-			//   characterFavorites: (character) => {
-			// 	let favoriteCharacters = getStore().favoriteCharacters
-			// 	favoriteCharacters = favoriteCharacters.filter(
-			// 		(characters_i) => characters_i.characters_name != character.characters_name
-			// 	);
-			// 	let characters = [...favoriteCharacters, characters];
-			// 	setStore({favoriteCharacters: characters});
-			//   },
-			//   charactersFavoriteRemove: (characters) => {
-			// 	let favortieCharacters = getStore(). favortieCharacters;
-			// 	favoriteCharacters = favortieCharacters.filter(
-			// 		(characters_i) => characters_i.characters_name != characters.characters_name
-			// 	);
-			// 	setStore({favoriteCharacters: characters});
-			//   },
+			  characterFavoritesAndRemove: (character) => {
+				let favoriteCharacters = getStore().favoriteCharacters
+				if(character in favoriteCharacters)  {
+					let newFavoriteCharacters = favortieCharacters.filter(
+						(item) => item.name != character.name
+						
+					);
+					setStore({favoriteCharacters: newFavoriteCharacters});
+
+				} else {
+					let newFavoriteCharacters = favoriteCharacters.concat(character)
+					setStore({favoriteCharacters: newFavoriteCharacters});
+
+				}
+			
+				
+				
+			  },
+			 
 			getCharacters: async () => {
 				//doesnt work move onto catch
 				try{
@@ -53,7 +57,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					const response = await fetch(apiUrl + "/species");
 					//grab response and read  json data that was Fetched on line 11
 					const data = await response.json();
-					setStore({species:data.result})
+					setStore({species:data.results})
 					// it is data.results bc the responce is an object that has a key named results that holds the information we need tho fetch 
 					//always need a return statement in try
 					return data;
@@ -70,7 +74,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					const response = await fetch(apiUrl + "/starships");
 					//grab response and read  json data that was Fetched on line 11
 					const data = await response.json();
-					setStore({starships:data.result})
+					setStore({starships:data.results})
 					// it is data.results bc the responce is an object that has a key named results that holds the information we need tho fetch 
 					//always need a return statement in try
 					return data;
@@ -87,7 +91,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					const response = await fetch(apiUrl + "/planets");
 					//grab response and read  json data that was Fetched on line 11
 					const data = await response.json();
-					setStore({planets:data.result})
+					setStore({planets:data.results})
 					// it is data.results bc the responce is an object that has a key named results that holds the information we need tho fetch 
 					//always need a return statement in try
 					return data;

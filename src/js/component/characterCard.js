@@ -8,7 +8,7 @@ export const CharacterCard = (props) => {
   const handleFavorites = (e) => {
     e.preventDefault();
     if (activeFav === true) {
-      actions.artistFavoriteRemove(props);
+      actions.characterFavoriteAndRemove(props);
       setActiveFav(false);
     } else {
       actions.artistFavorite(props);
@@ -29,7 +29,7 @@ export const CharacterCard = (props) => {
     <p className="card-text">{props.birth_year}</p>
     <p>{props.gender}</p>
     
-    <Link to ={ "/character-details/" + props.index}><a href="#" className="btn btn-primary">Go somewhere</a></Link>
+    <Link to ={ "/character-details/" + props.index}>Go somewhere</Link>
     <div className="buttonDiv mb-1">
           <a className="btn btn-sm purplebutton" href={props.link}>
            
