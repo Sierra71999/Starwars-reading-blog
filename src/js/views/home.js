@@ -19,24 +19,31 @@ export const Home = () => {
    
 	return ( 
 	
-	<div className="text-center mt-5 container">
-		<div className="d-flex ">
-			<h2 className="">Charcters</h2>
+	<div className="home-container container-fluid mt-5">
+		<h2 className="mbt-">Charcters</h2>
+		<div className="characters-container ">
+			
           {store.characters?.map((character, index)=>  (
 		<CharacterCard key = {index} name = {character.name} birth = {character.birth_year}  gender = {character.gender} index = {index} />))}
 		</div>
-		<div className="d-flex">
-			<h2>Species</h2>
+		<div>
+			<h2 className="mb-4">Species</h2>
+			</div>
+		<div className="species-container">
+			
+			
          {store.species?.map((species, index)=> (
 		<SpeciesCard key = {index} name = {species.name} classification = {species.classification}  language = {species.language} lifespan = {species.lifespan} designation = {species.designation} index = {index} />))} 
 		</div>
-		<div className="d-flex">
-			<h2>Planets</h2>
+		
+			<div><h2 className="mb-4">Planets</h2></div>
+			<div className="planets-container">
          {store.planets?.map((planet, index)=> (
 		<PlanetsCard key = {index} name = {planet.name} climate = {planet.climate}  terrain = {planet.terrain} rotation_period ={planet.rotation_planet} index = {index} />))} 
 		</div>
-		<div className="d-flex">
-			<h2>Starships</h2>
+		
+			<div><h2 className="mb-4">Starships</h2></div>
+			<div className="starships-container">
          {store.starships?.map((starship, index)=> (
 		<StarshipsCard key = {index} name = {starship.name} model = {starship.model}  cost = {starship.cost} index = {index}/>))} 
 		</div>

@@ -5,7 +5,7 @@ import { Context } from '../store/appContext.js';
 import { Link } from "react-router-dom";
 export const SpeciesCard = (props) => {
     return (
-    <div className="card" style={{"width":"18rem"}}>
+    <div className="card-container" >
      <img src={"https://github.com/tbone849/star-wars-guide/blob/master/build/assets/img/species/" + (parseInt(props.index) + 1 ) + ".jpg?raw=true"} className="card-img-top" alt="..."/>
 
   <div className="card-body">
