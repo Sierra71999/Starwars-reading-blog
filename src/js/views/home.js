@@ -11,6 +11,8 @@ import { StarshipsCard } from "../component/starshipsCard";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
+
+
 	//will only run once when pg loads or if something is in [] (means array) changes(only if change occurs)
 	
 
@@ -19,34 +21,32 @@ export const Home = () => {
    
 	return ( 
 	
-	<div className="home-container container-fluid mt-5">
-		<h2 className="mbt-">Charcters</h2>
-		<div className="characters-container ">
+	<div className="text-center mt-5 container">
+
+        <h2 className="">Charcters</h2>
+		<div className="row data-row">
 			
           {store.characters?.map((character, index)=>  (
-		<CharacterCard key = {index} name = {character.name} birth = {character.birth_year}  gender = {character.gender} index = {index} />))}
+		<CharacterCard key = {index} name = {character.name} birth_year = {character.birth_year} gender = {character.gender} index = {index} />))}
 		</div>
-		<div>
-			<h2 className="mb-4">Species</h2>
-			</div>
-		<div className="species-container">
-			
+{/* <h2>Species</h2>
+		<div className="row data-row">
 			
          {store.species?.map((species, index)=> (
-		<SpeciesCard key = {index} name = {species.name} classification = {species.classification}  language = {species.language} lifespan = {species.lifespan} designation = {species.designation} index = {index} />))} 
+		<SpeciesCard key = {index} species = {species} index = {index} />))} 
 		</div>
-		
-			<div><h2 className="mb-4">Planets</h2></div>
-			<div className="planets-container">
+<h2>Planets</h2>
+		<div className="row data-row">
+			
          {store.planets?.map((planet, index)=> (
-		<PlanetsCard key = {index} name = {planet.name} climate = {planet.climate}  terrain = {planet.terrain} rotation_period ={planet.rotation_planet} index = {index} />))} 
+		<PlanetsCard key = {index} name = {planet} climate = {planet.climate}  terrain = {planet.terrain} rotation_period ={planet.rotation_planet} index = {index} />))} 
 		</div>
-		
-			<div><h2 className="mb-4">Starships</h2></div>
-			<div className="starships-container">
+		<h2>Starships</h2>
+		<div className="row data-row">
+			
          {store.starships?.map((starship, index)=> (
 		<StarshipsCard key = {index} name = {starship.name} model = {starship.model}  cost = {starship.cost} index = {index}/>))} 
-		</div>
+		</div> */}
 	</div>
 	);
 	};

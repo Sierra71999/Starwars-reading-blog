@@ -1,21 +1,5 @@
-.characters-container,
-.planets-container,
-.starships-container,
-.species-container {
-  display: flex;
-  flex-direction: row;
-  width: 80%;
+.data-row {
+  flex-wrap: nowrap;
   overflow-x: scroll;
-  margin: 2rem 0;
-  scrollbar-color: black grey;
-}
-.home-container {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-size: cover;
-    background-position: center;
-    color: red;
+  overflow-y: hidden;
 }

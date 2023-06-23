@@ -9,27 +9,64 @@ const getState = ({ getStore, getActions, setStore }) => {
 			starships: [],
 			planets: [],
 			favoriteCharacters: [],
+			favoritePlanets: [],
+            favoriteSpecies: [],
+			favoriteStarships: []
 		},
 		//action is an object and getCharacters is a key
 		actions: {
-			
-			  characterFavoritesAndRemove: (character) => {
-				let favoriteCharacters = getStore().favoriteCharacters
-				if(character in favoriteCharacters)  {
-					let newFavoriteCharacters = favortieCharacters.filter(
-						(item) => item.name != character.name
-						
-					);
-					setStore({favoriteCharacters: newFavoriteCharacters});
-
+			//function is to add and remove characters underneath
+			updateFavoriteCharacters: (newFavorite) => {
+				let favoritesCharacters = getStore().favoriteCharacters;
+			  
+				if (favoritesCharacters.includes(newFavorite)) { // Check if newFavorite is already in favorites
+				  let newFavoriteCharacters = favoritesCharacters.filter(
+					(item) => item !== newFavorite // Filter out the character to be removed
+				  );
+				  setStore({ favoriteCharacters: newFavoriteCharacters });
 				} else {
-					let newFavoriteCharacters = favoriteCharacters.concat(character)
-					setStore({favoriteCharacters: newFavoriteCharacters});
-
+				  let newFavoriteCharacters = [...favoritesCharacters, newFavorite]; // Add newFavorite to favorites another way to do this is the push method
+				  setStore({ favoriteCharacters: newFavoriteCharacters }); //save command 
 				}
-			
-				
-				
+			  },
+			updateFavoritePlanets: (newFavorite) => {
+				let favoritesPlanets = getStore().favoritePlanets;
+			  
+				if (favoritesPlanets.includes(newFavorite)) { // Check if newFavorite is already in favorites
+				  let newFavoritePlanets = favoritesPlanets.filter(
+					(item) => item !== newFavorite // Filter out the character to be removed
+				  );
+				  setStore({ favoritePlanets: newFavoritePlanets });
+				} else {
+				  let newFavoritePlanets = [...favoritesPlanets, newFavorite]; // Add newFavorite to favorites another way to do this is the push method
+				  setStore({ favoritePlanets: newFavoritePlanets }); //save command 
+				}
+			  },
+			updateFavoriteSpecies: (newFavorite) => {
+				let favoritesSpecies = getStore().favoriteSpecies;
+			  
+				if (favoritesSpecies.includes(newFavorite)) { // Check if newFavorite is already in favorites
+				  let newFavoriteSpecies = favoritesSpecies.filter(
+					(item) => item !== newFavorite // Filter out the character to be removed
+				  );
+				  setStore({ favoriteSpecies: newFavoriteSpecies });
+				} else {
+				  let newFavoriteSpecies = [...favoritesSpecies, newFavorite]; // Add newFavorite to favorites another way to do this is the push method
+				  setStore({ favoriteSpecies: newFavoriteSpecies }); //save command 
+				}
+			  },
+			updateFavoriteSpecies: (newFavorite) => {
+				let favoritesStarships = getStore().favoriteSpecies;
+			  
+				if (favoritesStarships.includes(newFavorite)) { // Check if newFavorite is already in favorites
+				  let newFavoriteStarships = favoritesStarships.filter(
+					(item) => item !== newFavorite // Filter out the character to be removed
+				  );
+				  setStore({ favoriteStarships: newFavoriteStarships });
+				} else {
+				  let newFavoriteStarships = [...favoritesStarships, newFavorite]; // Add newFavorite to favorites another way to do this is the push method
+				  setStore({ favoriteStarships: newFavoriteStarships }); //save command 
+				}
 			  },
 			 
 			getCharacters: async () => {
